@@ -1,0 +1,69 @@
+<ion-header>
+  <ion-toolbar color = "primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref ="/" text = "">
+      </ion-back-button >
+    </ion-buttons>
+    <ion-title>
+      Colocar notas
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content  padding>
+  <div style="width:100%;text-align: center;align-content: center;align-self: center;">
+    <img src="assets/icon/0002.png" width="45%" height="20%">
+  </div>
+  <ion-item>
+    <ion-label position="stacked" color = "primary">Aluno</ion-label>
+  <ion-input type = "text" disabled >{{nomealuno}}</ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked" color = "primary">Numero de Matricula</ion-label>
+  <ion-input disabled type = "number">{{nMatricula}}</ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked" color = "primary">Materia</ion-label>
+  <ion-input disabled type ="text">{{nomeMateria}}</ion-input>
+  </ion-item>
+
+  <br>
+<ion-label color = "primary" ><b>Notas:</b></ion-label>
+
+<ion-grid>
+  <ion-row>
+    <ion-col>
+      Nota 1
+    </ion-col>
+    <ion-col>
+      Nota 2
+    </ion-col>
+    <ion-col>
+      Nota 3
+    </ion-col>
+    <ion-col>
+      Nota 4
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+    <ion-input [(ngModel)]="nota1" (placeholder)="nota1"></ion-input>
+    </ion-col>
+    <ion-col>
+      <ion-input [(ngModel)]="nota2" (placeholder)="nota2"></ion-input>
+    </ion-col>
+    <ion-col>
+      <ion-input [(ngModel)]="nota3" (placeholder)="nota3"></ion-input>
+    </ion-col>
+    <ion-col>
+      <ion-input [(ngModel)]="nota4" (placeholder)="nota4"></ion-input>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+<ion-item>
+  <ion-label color ="primary"><b>Media atual :</b> {{media}}</ion-label>
+</ion-item>
+<ion-button fill="solid" expand="block" color="primary" (click)="permissao()">Salvar</ion-button>
+
+</ion-content>

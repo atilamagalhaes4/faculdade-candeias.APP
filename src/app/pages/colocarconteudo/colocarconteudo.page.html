@@ -1,0 +1,75 @@
+<ion-header>
+
+  <ion-toolbar color = "primary">
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+
+    <ion-title>
+      Publicar notícia
+    </ion-title>
+
+  </ion-toolbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-label color = "primary"><b>Titulo</b></ion-label>
+  <ion-item>
+  <ion-input type="text" placeholder ="Digite aqui ..." [(ngModel)]= "titulo"></ion-input>
+  </ion-item>
+  <br><br>
+  <ion-label color = "primary"><b>Mensagem</b></ion-label>
+  <ion-item>
+    <ion-textarea type="text" color = "primary" rows="10" placeholder ="Comece a digitar aqui ...." [(ngModel)]= "mensagem"></ion-textarea>
+  </ion-item>  
+<br>
+<!--<ion-item>
+  <ion-label color = "primary">Tirar uma foto</ion-label>
+  <ion-button  fill="outline" expand="block" (click)="tirarFoto()" color="primary" >Confirmar</ion-button>
+</ion-item>
+<br>
+  <ion-item>
+    <ion-label color = "primary">Selecionar uma foto</ion-label>
+    <ion-button  (click)="abrirGaleria()" fill="outline" expand="block" color="primary" >Confirmar</ion-button>
+  </ion-item>
+  <br> 
+       <ion-progress-bar *ngIf="loop == true"  color ="primary" type="indeterminate"></ion-progress-bar>
+  <br>-->
+  <ion-label color = "primary"><b>Endereço 1 (opcional)</b></ion-label>
+  <ion-item>
+  <ion-input type="text" placeholder ="Digite aqui ..." [(ngModel)]= "endereco1"></ion-input>
+  </ion-item>
+  <ion-label color = "primary"><b>Endereço 2 (opcional)</b></ion-label>
+  <ion-item>
+  <ion-input type="text" placeholder ="Digite aqui ..." [(ngModel)]= "endereco2"></ion-input>
+  </ion-item>
+ <br>
+
+  <ion-list >
+    <ion-item>
+      <ion-label color = "primary">Minhas Disciplinas</ion-label>
+      <ion-select placeholder="Selecione uma disciplína" name="retorno" [(ngModel)]= "retorno" >
+        <ion-select-option *ngFor="let c of dados" style="font-size: 10%;" (value)="c.nomeMateria">{{c.nomeMateria}}</ion-select-option>
+      <!---->  <ion-select-option  *ngIf="dados.length==0"  style="font-size: 10%;"  value="Direcao">Administrador</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <br>
+  <ion-label color ="primary">{{retorno}}</ion-label>
+  <br>
+</ion-list> 
+  <br>
+  <ion-item>
+  <ion-label color = "primary">Turma</ion-label> 
+   <ion-input type="number" placeholder ="Digite aqui ..." [(ngModel)]= "turma"></ion-input>
+
+  </ion-item>
+  <br>
+  <ion-button expand ="full" color = "primary" (click) = "publicar()">
+    Publicar
+      </ion-button>  
+
+
+</ion-content>

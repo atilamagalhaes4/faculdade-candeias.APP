@@ -1,0 +1,104 @@
+<ion-header>
+  <ion-toolbar color = "primary">
+    <ion-buttons>
+      <ion-back-button defaultHref ="/" text = "">
+      </ion-back-button >
+      <ion-title>Editar Pessoas</ion-title>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-item>
+    <ion-label position="stacked" color = "primary">Nome completo</ion-label>
+    <ion-input type = "text" name = "nome" [(ngModel)] = "nome" required="true" ></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked" color = "primary">Numero de Matricula</ion-label>
+    <ion-input required="true" name = "nMatricula" [(ngModel)] = "nMatricula" type = "number"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked" color = "primary">RG</ion-label>
+    <ion-input required="true" name = "rg" [(ngModel)] = "rg" type = "number"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked" color = "primary">CPF</ion-label>
+    <ion-input required="true" name = "cpf" [(ngModel)] = "cpf" type = "number"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked" color = "primary">Curso</ion-label>
+    <ion-input required="true" name = "curso" [(ngModel)] = "curso" type = "text"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked" color = "primary">Email</ion-label>
+    <ion-input required="true"name = "email" [(ngModel)] = "email" type = "email"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked" color = "primary">Telefone</ion-label>
+    <ion-input required="true"name = "telefone" [(ngModel)] = "telefone" type = "tel"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked" color = "primary">Senha</ion-label>
+    <ion-input required="true" name = "senha" [(ngModel)] = "senha"type = "text"></ion-input>
+  </ion-item>
+
+  <br><!--
+ <ion-list-header>
+  <ion-label color = "secondary">Tipo de conta</ion-label>
+</ion-list-header>
+
+ <ion-list>
+  <ion-item>
+    <ion-label>Aluno</ion-label>
+    <ion-checkbox slot="start" name = "campo1" [(ngModel)] = "campo [(ngModel)] = "campo></ion-checkbox>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Professor</ion-label>
+    <ion-checkbox slot="start" name = "campo2" [(ngModel)] = "campo2"></ion-checkbox>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Administrador</ion-label>
+    <ion-checkbox slot="start" name = "campo3" [(ngModel)] = "campo3"></ion-checkbox>
+  </ion-item>
+</ion-list>-->
+
+
+<ion-list>
+  <ion-radio-group  [(ngModel)] = "selecionado">
+
+      <ion-label color ="primary"><b>Selecione um tipo para a conta</b></ion-label>
+<br>
+    <ion-item>
+      <ion-label color ="primary">Administrador</ion-label>
+      <ion-radio slot="start"  value = "administrador" checked></ion-radio>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color ="primary">Aluno</ion-label>
+      <ion-radio slot="start"  value = "aluno" ></ion-radio>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color ="primary">Professor</ion-label>
+      <ion-radio slot="start"  value = "professor"></ion-radio>
+    </ion-item>
+  </ion-radio-group>
+</ion-list>
+
+
+<ion-item>
+  <ion-label  color = "primary"><b>Tipo de conta atual:</b> {{tipo}}</ion-label>
+</ion-item>
+
+
+ <ion-button padding fill="solid" expand="block" color="primary" (click) = "salvarDados()">Salvar dados</ion-button>
+ <br>
+
+ <ion-button padding fill="outline" expand="block" color="primary" (click) = "cancelar()">Cancelar</ion-button>
+ <br>
+</ion-content>

@@ -1,0 +1,40 @@
+<ion-header>
+
+  <ion-toolbar color = "primary">
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+
+    <ion-title>
+      Meus boletos
+    </ion-title>
+
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content padding>
+
+  <ion-refresher color ="primary" slot="fixed" (ionRefresh)="doRefresh($event)" >
+    <ion-refresher-content>
+    </ion-refresher-content>
+  </ion-refresher>
+
+
+
+
+  <ion-list-header *ngIf="contas.length ==0" >
+    <ion-label color = "primary">Não há boletos em seu nome ...</ion-label>
+  </ion-list-header>
+
+
+  <ion-list   lines="full">
+    <ion-item *ngFor ="let c of contas" detail lines = "full" (click)="baixar(c.id)">
+<ion-label color ="primary"><ion-icon slot="primary" name="wallet-outline"></ion-icon><b>Data em questão:</b> {{c.data}}</ion-label>
+      <br>
+      <ion-progress-bar *ngIf="aux == true"  type="indeterminate"></ion-progress-bar>
+      <br>
+    </ion-item>
+  </ion-list>
+
+</ion-content>

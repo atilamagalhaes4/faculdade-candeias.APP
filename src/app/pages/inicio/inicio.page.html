@@ -1,0 +1,91 @@
+<ion-header>
+
+  <ion-toolbar color = "primary">
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+
+    <ion-title>
+      Início
+    </ion-title>
+
+  </ion-toolbar>
+
+</ion-header>
+
+
+<ion-content >
+
+  <ion-row>
+    <ion-col size = "10">
+      <ion-input [(ngModel)]="pesquisar" type="search" placeholder ="Digite o nome de uma disciplína"></ion-input>
+    </ion-col>
+    <ion-col>
+      <ion-buttons (click)= "buscar()">
+        <ion-button>
+          <ion-icon slot="end" name="search"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-col>
+  </ion-row>
+
+
+  <ion-refresher color ="primary" slot="fixed" (ionRefresh)="doRefresh($event)" >
+    <ion-refresher-content>
+    </ion-refresher-content>
+  </ion-refresher>
+
+
+
+    <ion-list-header >
+      <ion-label color = "secondary">Feed de notícias</ion-label>
+    </ion-list-header>
+
+    <ion-list-header *ngIf="assuntos.length ==0" >
+      <ion-label color = "primary">Não há publicações ...</ion-label>
+    </ion-list-header>
+
+
+  <ion-list *ngIf="usuarioLogado == true"  lines="full">
+  <ion-item *ngFor ="let c of assuntos" detail lines = "full" (click)="verDados(c.materia, c.id, c.professor, c.turma, c.titulo, c.corpoMensagem, c.data)">
+    <ion-label *ngIf="c.materia !=Verificacao"><b>Disciplína:</b> {{c.materia}}
+    <br><b>Docente:</b> {{c.professor}}
+    <br><b>Assunto:</b> {{c.titulo}}
+    <br>
+  </ion-label>
+  
+  <ion-label  *ngIf="c.materia ==Verificacao"><b>Remetente:</b> Direção
+    <br><b>Responsável:</b> {{c.professor}}
+    <br><b>Assunto:</b> {{c.titulo}}
+    <br>
+  </ion-label>
+  
+</ion-item>
+</ion-list>
+
+<ion-list *ngIf="usuarioLogado == false"  lines="full">
+  <ion-item *ngFor ="let c of dadosIniciais" detail lines = "full" (click)="verDados(c.materia, c.id, c.professor, c.turma, c.titulo, c.corpoMensagem, c.data)">
+    <ion-label *ngIf="c.materia !=Verificacao"><b>Disciplína:</b> {{c.materia}}
+    <br><b>Docente:</b> {{c.professor}}
+    <br><b>Assunto:</b> {{c.titulo}}
+    <br>
+  </ion-label>
+  
+  <ion-label  *ngIf="c.materia ==Verificacao"><b>Remetente:</b> Direção
+    <br><b>Responsável:</b> {{c.professor}}
+    <br><b>Assunto:</b> {{c.titulo}}
+    <br>
+  </ion-label>
+  
+</ion-item>
+</ion-list>
+<!--
+<ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+  <ion-infinite-scroll-content
+    loadingSpinner="bubbles"
+    loadingText="Procurando por mais dados ...">
+  </ion-infinite-scroll-content>
+</ion-infinite-scroll>
+-->
+
+</ion-content>

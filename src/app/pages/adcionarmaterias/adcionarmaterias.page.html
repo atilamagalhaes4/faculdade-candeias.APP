@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar color = "primary">
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title> <!-- style="text-align: center;"-->
+Adcionar Matérias
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <div style="width:100%;text-align: center;align-content: center;align-self: center;">
+    <img src="assets/icon/0002.png" width="45%" height="20%">
+  </div>
+
+  <ion-item>
+    <ion-label position="floating" color = "primary"  >Nome da Materia</ion-label>
+    <ion-input name="materia" [(ngModel)]= "materia"></ion-input>
+  </ion-item>
+  <ion-list >
+    <ion-item>
+      <ion-label color = "primary">Curso</ion-label>
+      <ion-select placeholder="Selecione uma disciplína" name="retorno" [(ngModel)]= "retorno" >
+        <ion-select-option  style="font-size: 10%;" value="administracao">Administracao</ion-select-option>
+        <ion-select-option  style="font-size: 10%;" value="enfermagem">Enfermagem</ion-select-option>
+        <ion-select-option  style="font-size: 10%;" value="pedagogia">Pedagogia</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-list> 
+  <ion-list >
+    <ion-item>
+      <ion-label color = "primary">Professor</ion-label>
+      <ion-select placeholder="Selecione um professor" name="prof" [(ngModel)]= "prof" >
+        <ion-select-option  (value)="nada">Pendente</ion-select-option>
+        <ion-select-option *ngFor ="let c of professores" (value)="c.nome">{{c.nome}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-list> 
+  <ion-item>
+    <ion-label position="floating" color = "primary" >turma</ion-label>
+    <ion-input type="text" name="turma" [(ngModel)]= "turma"></ion-input>
+  </ion-item>
+
+ <br>
+    <ion-button expand="full" fill="solid" (click)="criar()">Confirmar</ion-button>
+
+</ion-content>

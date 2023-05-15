@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar color  = "primary">
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Entre ou cadastre-se</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <div style="width:100%;text-align: center;align-content: center;align-self: center;">
+    <img src="assets/icon/0001.png" width="70%" height="40%">
+  </div>
+  
+  <div>
+  
+    <ion-list>
+  
+      <ion-item style="margin: 5%;">
+        <ion-label position="floating" color = "primary">cpf</ion-label>
+        <ion-input required= "true" name = "email" [(ngModel)] = "cpf" type = "text"></ion-input>
+      </ion-item>
+  <br>
+      <ion-item style="margin: 5%;">
+        <ion-label position="floating" color = "primary">Senha</ion-label>
+        <ion-input  required = "true"  name = "senha" [(ngModel)] = "senha" [type]="verSenha"></ion-input>
+        <ion-icon slot="end" [name]="olho" (click) ="ver()"></ion-icon>
+      </ion-item>
+  
+    </ion-list>
+    <br>
+    <ion-button style="margin: 5%;" fill="solid" expand="block" color="primary" (click)="fazerLogin()">Entrar</ion-button>
+    <br>
+    <ion-button style="margin: 5%;" fill="outline" expand="block" color="secondary" routerLink = "/recuperarsenha">Recuperar conta</ion-button>
+    <br>
+    <ion-button style="margin: 5%;" fill="outline" expand="block" color="primary" routerLink = "/cadastro">Fazer cadastro</ion-button>
+
+  </div>
+
+
+</ion-content>

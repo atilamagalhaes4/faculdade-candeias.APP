@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar color = "primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref ="/" text = "">
+      </ion-back-button >
+    </ion-buttons>
+    <ion-title>
+  Lista de chamadas
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher color ="primary" slot="fixed" (ionRefresh)="doRefresh($event)" >
+    <ion-refresher-content>
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <ion-list-header>
+  <ion-label color = "secondary">Data atual {{data}}</ion-label>
+</ion-list-header>
+
+<ion-item>
+  <ion-label *ngIf="dados.length==0" color = "primary"> Nenhum aluno encontrado</ion-label>
+</ion-item>
+
+  <ion-list>
+    <ion-item-sliding  *ngFor="let c of dados">
+      <ion-item-options color ="light" side="start">
+        <ion-item-option (click)="presente(c.nomeMateria,c.nomealuno,c.id,c.turma,c.nomeProfessor,c.email,c.situacao)">Presente</ion-item-option>
+      </ion-item-options>
+  
+      <ion-item>
+        <img  slot="start"  width ="80px" height= "80px" [src]=c.fotoPerfil>
+      <ion-label color = "primary"> <b>Nome</b><br>{{c.nomealuno}}<br> <b>Matricula</b><br>{{c.nMatricula}}<br><br></ion-label>
+      </ion-item>
+
+      <ion-item-options side="end">
+        <ion-item-option color ="secondary"  (click)="ausente(c.nomeMateria,c.nomealuno,c.id,c.turma,c.nomeProfessor,c.email,c.situacao)">Ausente</ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  
+  </ion-list>
+
+
+</ion-content>

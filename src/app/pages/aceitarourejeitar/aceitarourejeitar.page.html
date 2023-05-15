@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar color  = "primary">
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Solicitações de alunos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher color ="primary" slot="fixed" (ionRefresh)="doRefresh($event)" >
+    <ion-refresher-content>
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <ion-item><ion-label color ="primary" ><b>Aceitos</b></ion-label></ion-item>
+<ion-item lines = "none"><ion-label *ngIf="opc1 == false" style="text-align: center;" color ="primary">Nenhum aluno cadastrado<br></ion-label></ion-item>
+
+<ion-list *ngFor ="let c of adcionados" >
+    <ion-item > <!--Se foi aceito-->    
+    <ion-label color ="primary"><b>Aluno</b><br>{{c.aluno}}<br>
+      <br><b>Materia</b><br>{{c.nomeMateria}}<br>
+      <br><b>Turma:</b> {{c.turma}}<br><br>
+      <br><b>Matricula:</b> {{c.nMatricula}}<br>
+<ion-button fill="outline" expand="block" (click)="excluir(c.id)">Remover aluno</ion-button>
+<br><br>
+    </ion-label>
+  </ion-item>
+  </ion-list>
+
+
+  <ion-item><ion-label color ="primary" ><b>Pendentes</b></ion-label></ion-item>
+  <ion-item lines = "none"><ion-label *ngIf="opc2 == false" style="text-align: center;" color ="primary">Nenhuma solicitação no momento<br></ion-label></ion-item>
+  
+  <ion-list *ngFor ="let c of pendentes" >
+      <ion-item > <!--Se foi aceito-->    
+      <ion-label color ="primary"><b>Aluno</b><br>{{c.aluno}}<br>
+        <br><b>Matéria</b><br>{{c.nomeMateria}}<br>
+        <br><b>Turma:</b> {{c.turma}}<br>
+        <br><b>Matricula:</b> {{c.nMatricula}}<br><br>
+        <ion-button expand="block"  fill="outline" (click)="aceitarAluno(c.id, c.aluno,c.nomeProfessor, c.nomeMateria, c.turma, c.email,c.situacao,c.nMatricula)">Aceitar</ion-button>
+        <ion-button expand="block"  fill="outline" (click)="excluir2(c.id)">Rejeitar</ion-button>
+  <br><br>
+      </ion-label>
+    </ion-item>
+    </ion-list>
+
+
+</ion-content>

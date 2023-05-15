@@ -1,3 +1,204 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+  <ion-split-pane contentId="main-content">
+    <ion-menu contentId="main-content" type="overlay">
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>
+            <ion-img  href="#" onclick="window.open('http://www.iescfac.edu.br/', '_system', 'location=yes'); return false;"  width="80" height="80" src="/assets/icon/0002.png"></ion-img>
+          </ion-title>
+        </ion-toolbar>
+      </ion-header>
+
+      <ion-content >
+        <ion-list >
+
+
+          <ion-menu-toggle auto-hide="false">
+            <ion-item [routerDirection]="'root'" routerLink="/inicio">
+              <ion-icon slot="start" name="home"></ion-icon>
+              <ion-label>
+                Inicio
+              </ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+
+          <ion-menu-toggle *ngIf="minhaConta ==true"  auto-hide="false">
+            <ion-item [routerDirection]="'root'" routerLink="/conta">
+              <ion-icon slot="start"name="person-circle-outline"></ion-icon>
+              <ion-label>
+                Minha conta
+              </ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+          
+
+          <ion-menu-toggle *ngIf="dadosAluno ==true || dadosAdmin == true ||dadosProfessor == true"  auto-hide="false">
+            <ion-item [routerDirection]="'root'" routerLink="/meusdadosaqui">
+              <ion-icon slot="start" name="person"></ion-icon>
+              <ion-label>
+              Ver meus dados
+              </ion-label>
+            </ion-item>
+          </ion-menu-toggle>  
+
+
+          <ion-menu-toggle *ngIf="dadosAluno == true"  auto-hide="false">
+            <ion-item [routerDirection]="'root'" routerLink="/tab">
+              <ion-icon slot="start" name="school"></ion-icon>
+              <ion-label>
+                Minhas disciplinas
+              </ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+
+          <ion-menu-toggle *ngIf="dadosAluno == true"  auto-hide="false">
+            <ion-item [routerDirection]="'root'" routerLink="/frequencia">
+              <ion-icon slot="start" name="alarm"></ion-icon>
+              <ion-label>
+                Frequência
+              </ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+
+
+
+          <ion-menu-toggle *ngIf="dadosAdmin == true"  auto-hide="false">
+            <ion-item [routerDirection]="'root'" routerLink="/pessoas">
+              <ion-icon slot="start" name="people"></ion-icon>
+              <ion-label>
+                Todas as pessoas
+              </ion-label>
+            </ion-item>
+
+          </ion-menu-toggle>
+          
+
+
+<!--                                                -->
+          <ion-menu-toggle *ngIf="dadosProfessor == true || dadosAdmin == true"  auto-hide="false">
+            <ion-item [routerDirection]="'root'" routerLink="/colocarconteudo">
+              <ion-icon slot="start" name="paper-plane"></ion-icon>
+              <ion-label>
+                Postar materiais
+              </ion-label>
+            </ion-item>
+
+          </ion-menu-toggle>
+          
+          <ion-menu-toggle  *ngIf="dadosProfessor == true || dadosAdmin == true"  auto-hide="false">
+            <ion-item [routerDirection]="'root'" routerLink="/removermateriais">
+              <ion-icon slot="start" name="trash"></ion-icon>
+              <ion-label>
+                Remover materiais
+              </ion-label>
+            </ion-item>
+
+          </ion-menu-toggle>
+
+
+          <ion-menu-toggle  *ngIf="dadosAdmin == true"  auto-hide="false">
+            <ion-item [routerDirection]="'root'" routerLink="/adcionarmaterias">
+              <ion-icon slot="start" name="add"></ion-icon>
+              <ion-label>
+                Adcionar disciplinas
+              </ion-label>
+            </ion-item>
+
+          </ion-menu-toggle>
+          
+
+          <ion-menu-toggle  *ngIf="dadosAdmin == true"  auto-hide="false">
+            <ion-item [routerDirection]="'root'" routerLink="/editarmaterias">
+              <ion-icon slot="start" name="brush"></ion-icon>
+              <ion-label>
+                Editar disciplinas
+              </ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+             
+          
+        <ion-menu-toggle   *ngIf="dadosAdmin == true"  auto-hide="false">
+          <ion-item [routerDirection]="'root'" routerLink="/pagarboleto">
+            <ion-icon slot="start" name="document"></ion-icon>
+            <ion-label>
+              Adcionar boletos
+            </ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+     
+        <ion-menu-toggle  *ngIf="dadosAluno == true"  auto-hide="false">
+          <ion-item [routerDirection]="'root'" routerLink="/pagarpdf">
+            <ion-icon slot="start" name="document"></ion-icon>
+            <ion-label>
+              Meus boletos
+            </ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+     
+
+          <ion-menu-toggle *ngIf="dadosAluno == true"  auto-hide="false">
+            <ion-item [routerDirection]="'root'" routerLink="/paranota">
+              <ion-icon slot="start" name="copy"></ion-icon>
+              <ion-label>
+                Ver minhas notas
+              </ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+                    
+
+          <ion-menu-toggle *ngIf="dadosProfessor == true"  auto-hide="false">
+            <ion-item [routerDirection]="'root'" routerLink="/aceitarourejeitar">
+              <ion-icon slot="start" name="bookmarks"></ion-icon>
+              <ion-label>
+                Solicitações de alunos
+              </ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+                    
+
+          <ion-menu-toggle *ngIf="dadosProfessor == true"  auto-hide="false">
+            <ion-item [routerDirection]="'root'" routerLink="/sobrepostarnotas">
+              <ion-icon slot="start" name="document"></ion-icon>
+              <ion-label>
+                Sobre Notas
+              </ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+                              
+
+          <ion-menu-toggle *ngIf="dadosProfessor == true" auto-hide="false">
+            <ion-item [routerDirection]="'root'" routerLink="/listachamadas">
+              <ion-icon slot="start" name="list"></ion-icon>
+              <ion-label>
+                Lista de chamadas
+              </ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+
+
+          <ion-menu-toggle  auto-hide="false">
+            <ion-item routerLink="/sobre" [routerDirection]="'root'" >
+              <ion-icon slot="start" name="information"></ion-icon>
+              <ion-label>
+                Informações adicionais
+              </ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+
+
+          <ion-menu-toggle  auto-hide="false">
+            <ion-item routerLink="/sair" [routerDirection]="'root'" >
+              <ion-icon slot="start" name="exit"></ion-icon>
+              <ion-label>
+                Sair
+              </ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+
+        </ion-list>
+      </ion-content>
+    </ion-menu>
+
+    <ion-router-outlet id="main-content"></ion-router-outlet>
+  </ion-split-pane>
 </ion-app>

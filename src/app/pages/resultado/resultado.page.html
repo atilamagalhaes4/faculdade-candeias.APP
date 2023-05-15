@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar color = "primary">
+    <ion-buttons>
+      <ion-back-button defaultHref ="/" text = "">
+      </ion-back-button >
+      <ion-title>Sistema de mensagens</ion-title>
+    </ion-buttons>
+</ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-card>
+    <ion-card-header>
+
+      <ion-card-title color ="primary">{{titulo}}</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+
+      <ion-label>{{corpoMensagem}}<br></ion-label>
+<br>
+      <div  *ngIf="this.endereco3!= aux" >
+        <img [src]="endereco3">
+      </div>
+        <br> 
+
+    <li *ngIf="endereco1!=aux" >
+    <ion-label color = "primary"  (click)="openBrowser(endereco1)"> Abrir anexo </ion-label>
+    </li>
+    <br>
+    <li *ngIf="endereco2!=aux">
+      <ion-label color = "primary" (click)="openBrowser(endereco2)">Abrir anexo </ion-label>
+    </li>
+    <br>
+    
+    
+      <br>
+          <ion-label><br>Publicado em {{data}}, por {{professor}}</ion-label><br><br>
+          <br>
+
+    </ion-card-content>
+  </ion-card>
+
+
+</ion-content>

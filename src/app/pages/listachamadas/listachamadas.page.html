@@ -1,0 +1,82 @@
+<ion-header>
+  <ion-toolbar color = "primary">
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Selecionar disciplína
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <div style="width:100%;text-align: center;align-content: center;align-self: center;">
+    <img src="assets/icon/0002.png" width="45%" height="20%">
+  </div>
+<br><br><br>
+  <ion-button expand ="block"  (click)="testando1()" color="primary" >Realizar chamada</ion-button>
+<br>
+  <ion-button  expand ="block" (click)="testando2()" color="primary" >Editar alguma lista de chamada</ion-button>
+
+  <!--------------------------------------------------------------------------------------->
+  <ion-list *ngIf="teste1 == true"  lines="full">
+<br> <br>
+<ion-label color = "primary" ><b>Realizar chamadas</b></ion-label>
+<br>
+
+   <ion-item>
+    <ion-label color = "primary"><b>Disciplina</b></ion-label>
+    <br>
+    <ion-label color = "primary"></ion-label>
+    <ion-select placeholder="Clique aqui" name="retorno1" [(ngModel)]= "retorno1" >
+      <ion-select-option  *ngFor ="let c of disciplina" (value)="c.nome">{{c.nomeMateria}}</ion-select-option>
+    </ion-select>
+  </ion-item>
+<br>
+        <ion-item *ngIf="retorno1!= null" >
+          <br>
+        
+              <ion-label color = "primary"><b>turma</b></ion-label>
+              
+              <ion-select slot="end" placeholder="Clique aqui"  (click) ="pegarTurma()" name="retorno2" [(ngModel)]= "retorno2" >
+                <ion-select-option *ngFor ="let c of turmas" color = "primary"(value)="c.turma">{{c.turma}}</ion-select-option>
+              </ion-select>
+            </ion-item><br>
+            <ion-button expand ="block" fill="solid" (click)="examinar()" color="primary" >Entrar</ion-button>
+          <ion-label color = "primary">{{retorno1}}<br><b>Turma:</b> {{retorno2}}</ion-label>
+          </ion-list>
+
+  <!---------------------------------------------------------------------------------------------->
+
+  <ion-list *ngIf="teste2 == true"  lines="full">
+    <br><br>
+    <ion-label color = "primary" ><b>Editar alguma chamada</b></ion-label>
+<br>
+    <ion-item>
+      <ion-label color = "primary"><b>Disciplina</b></ion-label>
+      <ion-select slot="end" placeholder="Clique aqui" name="retorno1" [(ngModel)]= "retorno1" >
+        <ion-select-option *ngFor ="let c of disciplina" (value)="c.nome">{{c.nomeMateria}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+  <br>
+<ion-item *ngIf="retorno1!= null" >
+      <ion-label color = "primary"><b>turma</b><br></ion-label>
+      
+      <ion-label color = "primary"></ion-label>
+      <ion-select placeholder="Clique aqui"  (click) ="pegarTurma()" name="retorno2" [(ngModel)]= "retorno2" >
+        <ion-select-option *ngFor ="let c of turmas"(value)="c.turma">{{c.turma}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <br>
+    <ion-item *ngIf="retorno2 != null" >
+
+        <ion-label color ="primary">Data</ion-label>
+        <ion-datetime [(ngModel)] ="retorno3" done-text="Concluir" cancel-text="Cancelar" displayFormat="DD MM YYYY" placeholder="Clique aqui"></ion-datetime>
+      
+    </ion-item>
+    <ion-button expand ="block" fill="solid" (click)="editarPresenca()" color="primary" >Entrar</ion-button>
+    <ion-label color = "primary">{{retorno1}}<br><b>Turma:</b> {{retorno2}}</ion-label>
+    <br>
+  </ion-list>
+
+</ion-content>

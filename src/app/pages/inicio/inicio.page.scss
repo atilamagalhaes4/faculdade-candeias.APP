@@ -1,0 +1,31 @@
+.welcome-card img {
+  max-height: 35vh;
+  overflow: hidden;
+}
+
+.titleicon {
+  position: relative;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  text-align: inherit;
+}
+
+ion-searchbar {
+  color : #353368;
+  border-radius: 30px;
+  }
+  
+  .searchbar-input {
+  color : #353368;
+  border-radius: 30px;
+  }
+  ion-input{
+    color: #353368;
+  }
+  ion-item{
+    color: #353368;
+    ion-icon {
+      color: #353368;
+ }
+}

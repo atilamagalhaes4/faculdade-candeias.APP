@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar color ="primary">
+    <ion-title>Configuracões iniciais</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <div style="width:100%;text-align: center;align-content: center;align-self: center;">
+    <img src="assets/icon/0002.png" width="45%" height="20%">
+  </div>
+<br><br><br>
+  <ion-label style="text-align:justify;" color ="primary">
+    Olá sr. {{nome}}, aparentemente é a sua primeira vez no app. Primeiramente precisamos que voce coloque uma senha para poder continuar.
+  </ion-label>
+  <br>  <br>
+
+
+  <ion-item>
+    <ion-label position="floating" color = "primary">Digite uma senha</ion-label>
+    <ion-input type = "password" name = "nome" [(ngModel)] = "retorno1" required="true" ></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating" color = "primary">Digite novamente</ion-label>
+    <ion-input type = "password" name = "nome" [(ngModel)] = "retorno2" required="true" ></ion-input>
+  </ion-item>
+  <br><br>
+  <ion-button  fill="outline" expand="block" (click)="Confirmar()" color="primary" >Confirmar</ion-button>
+  
+<br>
+<ion-button  fill="outline" expand="block" (click)="funcaoSair()" color="primary" >Sair</ion-button>
+
+</ion-content>

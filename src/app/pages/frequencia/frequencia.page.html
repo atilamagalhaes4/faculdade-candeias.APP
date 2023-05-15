@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar color = "primary">
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+      <ion-title>Verificar Frequência</ion-title>
+    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <div style="width:100%;text-align: center;align-content: center;align-self: center;">
+    <img src="assets/icon/0002.png" width="45%" height="20%">
+  </div>
+  <br><br><br>
+  <!--------------------------------------------------------------------------------------->
+<ion-label color ="primary"><b>Para uma checagem rápida selecione a disciplina.</b></ion-label>
+<br><br><br>
+  <ion-list  lines="full">
+<ion-item>
+    <ion-label color = "primary"><b>Disciplina</b></ion-label>
+    <br>
+    <ion-label color = "primary"></ion-label>
+    <ion-select placeholder="Clique aqui" name="retorno1" [(ngModel)]= "retorno1" >
+      <ion-select-option  *ngFor ="let c of disciplina" (value)="c.nomeMateria">{{c.nomeMateria}}</ion-select-option>
+    </ion-select>
+  </ion-item>
+<br><br> 
+          </ion-list>
+
+          <ion-button expand ="block" fill="solid" (click)="verificar()" color="primary" >Verificar</ion-button>
+          <br>
+          <ion-label color = "primary">{{retorno1}}<br></ion-label>
+
+        </ion-content>

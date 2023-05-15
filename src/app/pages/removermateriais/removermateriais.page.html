@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar color = "primary">
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+      <ion-title>Excluir materiais</ion-title>
+    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-refresher color ="primary" slot="fixed" (ionRefresh)="doRefresh($event)" >
+    <ion-refresher-content>
+    </ion-refresher-content>
+  </ion-refresher>
+
+
+  <ion-list-header >
+    <ion-label color = "secondary">Clique para apagar</ion-label>
+  </ion-list-header>
+
+  <ion-list-header *ngIf="materiais.length ==0" >
+    <ion-label color = "primary">Não há publicações ...</ion-label>
+  </ion-list-header>
+
+
+
+  <ion-list  *ngFor ="let c of materiais" lines="full">
+    <ion-item detail (click) ="apagar(c.id)">
+        <ion-label color = "primary">
+          <b>Materia:</b> {{c.materia}}<br>
+          <b>Titulo:</b> {{c.titulo}}<br>
+          <b>Data:</b> {{c.data}}<br>
+        </ion-label>
+        <br>
+
+      </ion-item>
+              </ion-list>
+
+
+</ion-content>

@@ -1,0 +1,64 @@
+<ion-header>
+
+  <ion-toolbar color = "primary">
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+
+    <ion-title>
+      Pagamentos
+    </ion-title>
+
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content padding >
+
+  <ion-label color = "secondary"> Sobre o aluno:</ion-label>
+  <br>
+    <ion-label color = "primary"><br>Selecione o seu curso</ion-label>
+    
+    <ion-select (ionChange)="passo1();" placeholder="Selecione o curso" name="oCurso" [(ngModel)]= "oCurso" >
+      <ion-select-option  value="administracao">Administracao</ion-select-option>
+      <ion-select-option   value="enfermagem">Enfermagem</ion-select-option>
+      <ion-select-option   value="pedagogia">Pedagogia</ion-select-option>
+    </ion-select>
+  <br>
+
+  <br>
+    <ion-label color = "primary"><br>Selecione o aluno</ion-label>
+    <ion-select (ionChange)="verAgora()"   placeholder="Selecione um aluno" [(ngModel)] = "aux" >
+      <ion-select-option  *ngFor="let c of alunos"  [value]="c.nMatricula">{{c.nome}}</ion-select-option>
+    </ion-select >
+    <br>    <br>
+
+      <ion-label color ="primary">Selecione o mês e ano referente ao boleto</ion-label>
+      <ion-datetime displayFormat="MM YYYY" [(ngModel)] = "data" cancel-text ="Cancelar" done-text="Concluir" placeholder="Selecione a data"></ion-datetime>
+  <br>
+  <br>
+  <ion-label color = "primary"> Revise os dados</ion-label>
+  <br>
+
+  <ion-item>
+    <ion-label position="stacked" color = "primary">Nome completo</ion-label>
+    <ion-input type = "text" name = "nome" [(ngModel)] = "nome" required="true" ></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked" color = "primary">Numero de Matricula</ion-label>
+    <ion-input required="true" name = "nMatricula" [(ngModel)] = "nMatricula" type = "number"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked" color = "primary">Email</ion-label>
+    <ion-input required="true" name = "rg" [(ngModel)] = "email" type = "text"></ion-input>
+  </ion-item>
+<br>
+  <ion-button *ngIf="meuPdf == aux2"  expand="block"  fill="outline" (click)="FileConverterBase64()">Selecionar pdf</ion-button>
+  <ion-button *ngIf="meuPdf != aux2"  expand="block"  fill="outline" (click)="FileConverterBase64()">Selecionar pdf  <ion-icon color ="success" name="checkmark-circle-outline"></ion-icon></ion-button>
+<br>
+  <ion-button expand="block"  fill="solid" (click)="enviar()">Enviar boleto</ion-button>
+  <br>
+  <ion-button expand="block"  fill="outline" (click)="alistarTodos()">Excluir algum boleto Anterior</ion-button>
+  <br>
+
+</ion-content>

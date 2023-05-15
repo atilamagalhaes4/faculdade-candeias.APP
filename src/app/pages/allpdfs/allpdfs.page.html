@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar color = "primary">
+    <ion-buttons>
+      <ion-back-button defaultHref ="/" text = "">
+      </ion-back-button >
+      <ion-title>Remover Pdf</ion-title>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+
+
+
+  <ion-list   lines="full">
+    <ion-item *ngFor ="let c of dados" detail lines = "full" (click)="excluirDados(c.id)">
+      <ion-label color ="primary"><b>Aluno:</b> {{c.nome}}
+      <br><b>Docente:</b> {{c.matricula}}
+      <br><b>Data:</b> {{c.data}}
+      <br>
+    </ion-label>
+    
+  </ion-item>
+  </ion-list>
+
+
+</ion-content>

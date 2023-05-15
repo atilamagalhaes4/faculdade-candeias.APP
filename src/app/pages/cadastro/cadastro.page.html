@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-toolbar color = "primary">
+    <ion-buttons>
+      <ion-back-button defaultHref ="/" text = "">
+      </ion-back-button >
+      <ion-title>Criar conta</ion-title> <!---->
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content  padding>
+  <div style="width:100%;text-align: center;align-content: center;align-self: center;">
+    <img src="assets/icon/0002.png" width="45%" height="20%">
+  </div>
+  <ion-item>
+    <ion-label position="floating" color = "primary">Nome completo</ion-label>
+    <ion-input type = "text" name = "nome" [(ngModel)] = "nome" required="true" ></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating" color = "primary">Numero de Matricula</ion-label>
+    <ion-input required="true" name = "nMatricula" [(ngModel)] = "nMatricula" type = "number"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating" color = "primary">RG (Somente digitos)</ion-label>
+    <ion-input required="true" name = "rg" [(ngModel)] = "rg" type = "number"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating" color = "primary">CPF (Somente digitos)</ion-label>
+    <ion-input required="true" name = "cpf" [(ngModel)] = "cpf" type = "number"></ion-input>
+  </ion-item>
+<br>
+    <ion-label color = "primary">Curso<br></ion-label>
+    
+    <ion-select placeholder="Selecione um professor" name="curso" [(ngModel)]= "curso" >
+      <ion-select-option  value="administracao">Administracao</ion-select-option>
+      <ion-select-option  value="enfermagem">Enfermagem</ion-select-option>
+      <ion-select-option  value="pedagogia">Pedagogia</ion-select-option>
+
+    </ion-select>
+  <br>
+
+
+  <ion-item>
+    <ion-label position="floating" color = "primary">Email</ion-label>
+    <ion-input required="true"name = "email" [(ngModel)] = "email" type = "email"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating" color = "primary">Telefone</ion-label>
+    <ion-input required="true"name = "telefone" [(ngModel)] = "telefone" type = "tel"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating" color = "primary">Senha</ion-label>
+    <ion-input required="true" name = "senha" [(ngModel)] = "senha"type = "password"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating" color = "primary">Confirmar senha</ion-label>
+    <ion-input required="true" name = "senha1" [(ngModel)] = "senha1" type = "password"></ion-input>
+  </ion-item>
+ <br>
+  <ion-button  fill="solid" expand="block" color="primary" (click) = "pegarDados()">Criar conta</ion-button>
+  <br>
+  
+</ion-content>

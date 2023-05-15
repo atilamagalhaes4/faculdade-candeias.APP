@@ -1,0 +1,104 @@
+<ion-header>
+  <ion-toolbar color  = "primary">
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+    Meus dados
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+
+<!--      <div class ="redondo">
+        <img  (click) ="abrirGaleria()" [src]=fotoPerfil/>
+      </div>
+    <br>-->
+
+  <ion-list *ngIf="modoEditar == false" >
+  <ion-item>
+    <ion-label position="floating" color = "primary">Nome completo</ion-label>
+    <ion-input  type = "text" name = "nome" [(ngModel)] = "nome"  ></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating" color = "primary">Numero de Matricula</ion-label>
+    <ion-input   name = "nMatricula" [(ngModel)] = "matricula" type = "number"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating" color = "primary">RG (Somente digitos)</ion-label>
+    <ion-input   name = "rg" [(ngModel)] = "rg" type = "number"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating" color = "primary">CPF (Somente digitos)</ion-label>
+    <ion-input   name = "cpf" [(ngModel)] = "cpf" type = "number"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating" color = "primary">Curso<br></ion-label>
+    <ion-input   name = "curso" [(ngModel)] = "curso" type = "text"></ion-input>
+  </ion-item>
+  <br>
+  <ion-item>
+    <ion-label position="floating" color = "primary">Email</ion-label>
+    <ion-input   name = "email" [(ngModel)] = "email" type = "email"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating" color = "primary">Telefone</ion-label>
+    <ion-input   name = "telefone" [(ngModel)] = "telefone" type = "tel"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating" color = "primary">Senha</ion-label>
+    <ion-input   name = "senha" [(ngModel)] = "senha"type = "text"></ion-input>
+  </ion-item>
+  <br>
+  <ion-button fill="outline" expand="block" color="primary" (click)="alternarEditar()">Editar dados</ion-button>
+<br>
+  <ion-button fill="outline" expand="block" color="secondary" (click)="DeletarConta()">Excluir conta</ion-button>
+
+</ion-list>
+
+
+<ion-list *ngIf="modoEditar == true" >
+  <ion-item>
+    <ion-label position="floating" color = "primary">Nome completo</ion-label>
+    <ion-input  type = "text" name = "nome" [(ngModel)] = "nome"  ></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating" color = "primary">Numero de Matricula</ion-label>
+    <ion-input   name = "nMatricula" [(ngModel)] = "matricula" type = "number"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating" color = "primary">RG (Somente digitos)</ion-label>
+    <ion-input   name = "rg" [(ngModel)] = "rg" type = "number"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating" color = "primary">CPF (Somente digitos)</ion-label>
+    <ion-input   name = "cpf" [(ngModel)] = "cpf" type = "number"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating" color = "primary">Curso<br></ion-label>
+    <ion-input   name = "curso" [(ngModel)] = "curso" type = "text"></ion-input>
+  </ion-item>
+  <br>
+  <ion-item>
+    <ion-label position="floating" color = "primary">Email</ion-label>
+    <ion-input   name = "email" [(ngModel)] = "email" type = "email"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating" color = "primary">Telefone</ion-label>
+    <ion-input   name = "telefone" [(ngModel)] = "telefone" type = "tel"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating" color = "primary">Senha</ion-label>
+    <ion-input   name = "senha" [(ngModel)] = "senha"type = "text"></ion-input>
+  </ion-item>
+  <br>
+  <ion-button fill="outline" expand="block" color="primary" (click)="confirmAlteracao()">Confirmar</ion-button>
+  <br>
+  <ion-button fill="outline" expand="block" color="primary" (click)="vouBack()">Voltar</ion-button>
+</ion-list>
+
+</ion-content>

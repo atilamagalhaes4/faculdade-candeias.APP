@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar color = "primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref ="/" text = "">
+      </ion-back-button >
+    </ion-buttons>
+    <ion-title>
+  Sobre notas
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-refresher color ="primary" slot="fixed" (ionRefresh)="doRefresh($event)" >
+    <ion-refresher-content>
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <ion-item>
+    <ion-label *ngIf="alunos.length==0" color = "primary"> Nenhum aluno encontrado</ion-label>
+  </ion-item>
+  
+    <ion-list lines="full" *ngFor="let c of alunos">
+    
+        <ion-item detail>
+        <ion-label (click)="postarNotas(c.nomeMateria,c.nomealuno,c.id,c.turma,c.nomeProfessor,c.email,c.situacao,c.nMatricula)" color = "primary"><b>Nome:</b> {{c.nomealuno}}<br><b>Matricula:</b> {{c.nMatricula}}<br><br></ion-label>
+        </ion-item>
+    
+    
+    </ion-list>
+  
+
+</ion-content>
